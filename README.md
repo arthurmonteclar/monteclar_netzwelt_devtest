@@ -11,9 +11,9 @@ To start, run a new terminal and input:
 
 If it does not start, try installing the following:
 
-### `npm install bootstrap'
-### 'npm i react-toastify'
-### 'npm install react-router-dom`
+### `npm install bootstrap`
+### `npm i react-toastify`
+### `npm install react-router-dom`
 
 Next, run another terminal. Due to CORS limitations, you need to run a proxy URL that connects to the API.
 
