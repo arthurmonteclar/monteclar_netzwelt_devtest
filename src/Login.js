@@ -17,21 +17,25 @@ const Login = () => {
         if (validate()) {
             ///implentation
             // console.log('proceed');
-            fetch("http://localhost:8000/user/" + username).then((res) => {
-                return res.json();
+            let inputobj = {
+                "username": username,
+                "password": password
+            };
+            fetch("http://localhost:8010/proxy/Account/SignIn", {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(inputobj)
+            }).then((res) => {
+                    return res.json();
             }).then((resp) => {
                 console.log(resp)
-                if (Object.keys(resp).length === 0) {
-                    toast.error('Please Enter valid username');
+                if (Object.keys(resp).length === 1) {
+                    toast.error(resp.message);
                 } else {
-                    if (resp.password === password) {
-                        toast.success('Success');
-                        sessionStorage.setItem('username', username);
-                        sessionStorage.setItem('userrole', resp.role);
-                        usenavigate('/')
-                    } else {
-                        toast.error('Please Enter valid credentials');
-                    }
+                    toast.success('Success');
+                    sessionStorage.setItem('username', username);
+                    sessionStorage.setItem('jwttoken', resp.jwtToken);
+                    usenavigate('/')
                 }
             }).catch((err) => {
                 toast.error('Login Failed due to :' + err.message);
@@ -44,40 +48,7 @@ const Login = () => {
         if (validate()) {
             ///implentation
             // console.log('proceed');
-            let inputobj = {
-                "username": username,
-                "password": password
-            };
-            fetch("https://localhost:44308/User/Authenticate", {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(inputobj)
-            }).then((res) => {
-                return res.json();
-            }).then((resp) => {
-                console.log(resp)
-                if (Object.keys(resp).length === 0) {
-                    toast.error('Login failed, invalid credentials');
-                } else {
-                    toast.success('Success');
-                    sessionStorage.setItem('username', username);
-                    sessionStorage.setItem('jwttoken', resp.jwtToken);
-                    usenavigate('/')
-                }
-                // if (Object.keys(resp).length === 0) {
-                //     toast.error('Please Enter valid username');
-                // } else {
-                //     if (resp.password === password) {
-                //         toast.success('Success');
-                //         sessionStorage.setItem('username',username);
-                //         usenavigate('/')
-                //     }else{
-                //         toast.error('Please Enter valid credentials');
-                //     }
-                // }
-            }).catch((err) => {
-                toast.error('Login Failed due to :' + err.message);
-            });
+            
         }
     } */
     const validate = () => {

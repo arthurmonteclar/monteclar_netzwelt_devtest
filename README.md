@@ -2,6 +2,27 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# How to run
+
+To start, run a new terminal and input:
+
+### `npm run build`
+### `npm start`
+
+If it does not start, try installing the following:
+
+### `npm install bootstrap'
+### 'npm i react-toastify'
+### 'npm install react-router-dom`
+
+Next, run another terminal. Due to CORS limitations, you need to run a proxy URL that connects to the API.
+
+### 'lcp --proxyUrl https://netzwelt-devtest.azurewebsites.net'
+
+If it does not work, try installing the following:
+
+### 'npm install -g local-cors-proxy'
+
 ## Available Scripts
 
 In the project directory, you can run:
