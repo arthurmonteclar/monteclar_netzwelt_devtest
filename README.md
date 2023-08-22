@@ -17,11 +17,11 @@ If it does not start, try installing the following:
 
 Next, run another terminal. Due to CORS limitations, you need to run a proxy URL that connects to the API.
 
-### 'lcp --proxyUrl https://netzwelt-devtest.azurewebsites.net'
+### `lcp --proxyUrl https://netzwelt-devtest.azurewebsites.net`
 
 If it does not work, try installing the following:
 
-### 'npm install -g local-cors-proxy'
+### `npm install -g local-cors-proxy`
 
 ## Available Scripts
 
